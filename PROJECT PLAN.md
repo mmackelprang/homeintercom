@@ -8,15 +8,15 @@ This document outlines the phased plan for developing the **Mumble Node Controll
 
 **Goal:** Establish a stable, auto-connecting Mumble client with functional audio input/output.
 
-| Task ID | Task Description | Deliverables & Metrics |
-| :--- | :--- | :--- |
-| **1.1** | **Setup Client Environment** | RPi Zero W running RPi OS, **.NET 8 Runtime** installed, USB audio recognized (`aplay -l`, `arecord -l` check). |
-| **1.2** | **Initial C# Project & Dependencies** | C# project created (targeting `net8.0`), **MumbleSharp** and **NAudio** NuGet packages installed. |
-| **1.3** | **Mumble Connection Logic** | `MumbleIntercomController` class implemented. Client successfully **connects** to the Murmur server IP (e.g., 192.168.1.50). |
-| **1.4** | **Seamless Connection/Reconnection** | Code logic to automatically join the server on launch and **re-establish connection** if dropped. Logs show successful connection status. |
-| **1.5** | **Automatic Channel Join** | Upon connection, the client successfully searches for and **joins the "All" channel** using its channel name. |
-| **1.6** | **Audio Capture & Transmission (PTT POC)** | **NAudio** configured to capture mic input. Implement PTT function that **Opus encodes** and transmits voice data to the current channel. |
-| **1.7** | **Audio Playback** | Implement handling of **received voice packets** from Murmur and play them back through **NAudio** to the speaker. |
+| Task ID | Task Description | Deliverables & Metrics | Status |
+| :--- | :--- | :--- | :--- |
+| **1.1** | **Setup Client Environment** | RPi Zero W running RPi OS, **.NET 8 Runtime** installed, USB audio recognized (`aplay -l`, `arecord -l` check). | ⏳ Pending hardware |
+| **1.2** | **Initial C# Project & Dependencies** | C# project created (targeting `net8.0`), **MumbleSharp** and **NAudio** NuGet packages installed. | ✅ **COMPLETE** |
+| **1.3** | **Mumble Connection Logic** | `MumbleIntercomController` class implemented. Client successfully **connects** to the Murmur server IP (e.g., 192.168.1.50). | ✅ **COMPLETE** (Architecture) |
+| **1.4** | **Seamless Connection/Reconnection** | Code logic to automatically join the server on launch and **re-establish connection** if dropped. Logs show successful connection status. | ✅ **COMPLETE** |
+| **1.5** | **Automatic Channel Join** | Upon connection, the client successfully searches for and **joins the "All" channel** using its channel name. | ⚠️ Architecture ready, requires server |
+| **1.6** | **Audio Capture & Transmission (PTT POC)** | **NAudio** configured to capture mic input. Implement PTT function that **Opus encodes** and transmits voice data to the current channel. | ✅ **COMPLETE** |
+| **1.7** | **Audio Playback** | Implement handling of **received voice packets** from Murmur and play them back through **NAudio** to the speaker. | ✅ **COMPLETE** |
 
 ---
 
